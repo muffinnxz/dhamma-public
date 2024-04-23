@@ -3,13 +3,14 @@ import admin from "@/lib/firebase-admin";
 import { uploadBase64 } from "@/lib/firebase-storage";
 import { DocumentSnapshot, DocumentData } from "firebase-admin/lib/firestore";
 import * as crypto from "crypto";
-import { Place } from "@/interfaces/place";
+
 export const getUser = async (userId: string): Promise<DocumentSnapshot<DocumentData, DocumentData>> => {
   const fs = admin.firestore();
   const userRef = fs.collection("users").doc(userId);
   const user = await userRef.get();
   return user;
 };
+
 
 export const createUser = async (
   userId: string,
@@ -88,13 +89,13 @@ export const updateUser = async (userId: string, newData: Partial<UserData>): Pr
   }
 };
 
-export const getPlaces = async (): Promise<Place[]> => {
+export const getPlaces = async (): Promise<UserData[]> => {
   const fs = admin.firestore();
   const usersRef = fs.collection("users");
   const placesData = await usersRef.where("userType", "==", UserType.place).get();
-  const places: Place[] = [];
+  const places: UserData[] = [];
   placesData.forEach((place) => {
-    const placeData = place.data() as Place;
+    const placeData = place.data() as UserData;
     places.push(placeData);
   });
   return places;

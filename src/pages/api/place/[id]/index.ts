@@ -3,6 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
     const userId = req.query.id as string;
+    
     const user = await getUser(userId);
     const userData = user.data();
     if (!user.exists || userData?.userType !== "place") {
