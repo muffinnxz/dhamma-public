@@ -4,12 +4,11 @@ import { Link } from "@/lib/router-events";
 
 import { cn } from "@/lib/utils";
 import { useLockBody } from "@/hooks/use-lock-body";
-import { NavItem } from "./main-nav";
 import { TypographyLarge } from "../ui/typography";
 import { AppIcon } from "./app-icon";
 
 interface MobileNavProps {
-  items: NavItem[];
+  items: any[];
   children?: React.ReactNode;
 }
 

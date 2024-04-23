@@ -4,7 +4,7 @@ import DeliveryStatusHeader from "@/components/admin/delivery-status-header";
 import DeliveryStatus from "@/components/admin/delivery-status";
 import { MainNav } from "@/components/layouts/main-nav";
 import useUser from "@/hooks/use-user";
-import { useState, useEffect, use } from "react";
+import { useState, useEffect } from "react";
 import axios from "@/lib/axios";
 import { Order, OrderStatus } from "@/interfaces/order";
 import { Stock } from "@/interfaces/stock";
