@@ -1,25 +1,14 @@
 export default function Header({
   header,
-  sortOption,
   filterOption,
-  sortSelecting,
   filterStateFunction
 }: {
   header: string;
-  sortOption: string[];
   filterOption: {
     [key: string]: boolean;
   };
-  sortSelecting: number;
   filterStateFunction: Function;
 }) {
-  const sortings = sortOption.map((opt, index) => {
-    return (
-      <option key={opt} value={opt} className="text-center" selected={sortSelecting === index}>
-        {opt}
-      </option>
-    );
-  });
 
   let filters: React.ReactNode[] = [];
 
@@ -94,10 +83,6 @@ export default function Header({
     <>
       <h2 className="text-5xl font-semibold">{header}</h2>
       <div className="flex mt-4 items-center">
-        <select className="relative border-2 rounded-md px-4 py-1 me-4 text-center">
-          <option value="">Sort By</option>
-          {sortings}
-        </select>
         {filters}
       </div>
     </>

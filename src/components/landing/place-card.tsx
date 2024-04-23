@@ -34,13 +34,13 @@ export const PlaceCard = ({ place }: { place: Place }) => {
 
   if (!isLoading) {
     return (
-      <div className="inline-block w-[400px] p-2">
+      <div className="inline-block w-[400px] p-2" id={place.name.toLowerCase()}>
         <div className="w-[400px] h-[500px] bg-[#FFF5EB] rounded-lg">
           <div
             className="w-[400px] h-[300px] bg-cover bg-center rounded-t-lg"
             style={{ backgroundImage: `url(${place.picture}`}}
           />
-          <div className="flex flex-col w-[400px] h-[200px] pl-[20px] gap-[5px] justify-center">
+          <div  className="flex flex-col w-[400px] h-[200px] pl-[20px] gap-[5px] justify-center">
             <p className="text-sm text-yellow-500">{place.province.toUpperCase()}</p>
             <TypographyH3>{place.name.toUpperCase()}</TypographyH3>
             { requestItems.length > 0 && (

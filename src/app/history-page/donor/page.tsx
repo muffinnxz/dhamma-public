@@ -143,9 +143,7 @@ export default function History() {
           <div className="mt-12 py-12 px-20">
             <HistoryHeader
               header={userData.name}
-              sortOption={["Name", "Date"]}
               filterOption={filterOption}
-              sortSelecting={-1}
               filterStateFunction={setFilterOption}
             />
             <div className="flex flex-col mt-12 gap-6">

@@ -202,9 +202,7 @@ export default function SetDeliveryStatus() {
           <div className="mt-12 py-12 pl-20 pr-36">
             <DeliveryStatusHeader
               header={userData.name}
-              sortOption={["Name", "Date"]}
               filterOption={filterOption}
-              sortSelecting={-1}
               filterStateFunction={setFilterOption}
             />
             {/* 

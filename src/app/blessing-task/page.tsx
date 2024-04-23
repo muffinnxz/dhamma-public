@@ -144,9 +144,7 @@ export default function BlessingTaskPage() {
             <div className="mt-12 py-12 px-20">
               <BlessingHeader
                 header={userData.name}
-                sortOption={["Name", "Date"]}
                 filterOption={filterOption}
-                sortSelecting={-1}
                 filterStateFunction={setFilterOption}
               />
               <div className="flex flex-col mt-12 gap-6">
@@ -172,8 +170,6 @@ export default function BlessingTaskPage() {
         </HomeLayout>
       </div>
     );
-  } else if (userData.userType === UserType.donor) {
-    router.push("/history-page/donor");
   }
   return null;
 }
