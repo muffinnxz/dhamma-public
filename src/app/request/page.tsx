@@ -93,7 +93,7 @@ export default function Page() {
     if (user && stocks) {
       fetchData();
     }
-  }, [stocks]);
+  }, [stocks, user]);
 
   const onIncrement = (amount: number) => {
     setNewRequestMoney((prevValue) => prevValue + amount);

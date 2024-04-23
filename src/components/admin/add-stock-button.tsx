@@ -136,7 +136,7 @@ export const AddStockButton = ({
               <SelectContent>
                 <SelectGroup>
                   {Object.values(Category).map((category) => (
-                    <SelectItem value={category}>{category}</SelectItem>
+                    <SelectItem key={category} value={category}>{category}</SelectItem>
                   ))}
                 </SelectGroup>
               </SelectContent>

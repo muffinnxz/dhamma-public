@@ -3,6 +3,7 @@ import { updateStock } from "@/services/stock.service";
 import { NextApiResponse } from "next";
 import * as crypto from "crypto";
 import { uploadBase64 } from "@/lib/firebase-storage";
+import { Category } from "@/interfaces/stock";
 
 export const config = {
   api: {
@@ -19,7 +20,7 @@ interface ExtendedNextApiRequest extends NextApiRequestWithUser {
     description: string;
     price: number;
     stock: number;
-    category: string;
+    category: Category | undefined;
   };
 }
 
@@ -33,7 +34,7 @@ const handler = async (req: ExtendedNextApiRequest, res: NextApiResponse) => {
       description,
       price,
       stock: s,
-      category
+      category: category
     });
     return res.status(200).json({ message: "success", data: stock });
   }

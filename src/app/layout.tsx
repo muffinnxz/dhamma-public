@@ -6,10 +6,6 @@ import { Providers } from "./providers";
 import GoogleAnalytics from "./GoogleAnalytics";
 import Hotjar from "./Hotjar";
 
-import { useCookies } from "react-cookie";
-import useUser from "@/hooks/use-user";
-import { useEffect } from "react";
-
 const fontSans = Akshar({
   subsets: ["latin"],
   variable: "--font-sans",
