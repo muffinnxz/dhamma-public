@@ -42,7 +42,7 @@ const handler = async (req: ExtendedNextApiRequest, res: NextApiResponse) => {
   }
   const { id: userId, name, email, picture, userType, placeType, placeLocation, province, postalCode } = req.body;
   const userData = await getUser(userId);
-  if (userData?.exists) {
+  if (userData.exists) {
     res.status(409).json({ message: "Conflict" });
     return;
   }

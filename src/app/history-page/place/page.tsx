@@ -39,7 +39,6 @@ export default function History() {
     }[]
   >([]);
   const [isHistoryReceivedItemsLoadingFinished, setIsHistoryReceivedItemsLoadingFinished] = useState(false);
-  const [historyReceivedItemNodes, setHistoryReceivedItemNodes] = useState<React.ReactNode[]>([]);
 
   useEffect(() => {
     async function getHistoryReceivedItems() {
@@ -125,6 +124,8 @@ export default function History() {
     setHistoryReceivedItemNodes(historyReceivedItemNodes);
   }, [filterOption, historyReceivedItems]);
 
+  const [historyReceivedItemNodes, setHistoryReceivedItemNodes] = useState<React.ReactNode[]>([]);
+
   if (isLoading || !userData) {
     return (
       <div className="h-screen w-screen flex justify-center items-center">
@@ -142,7 +143,9 @@ export default function History() {
           <div className="mt-12 py-12 px-20">
             <HistoryHeader
               header={userData.name}
+              sortOption={["Name", "Date"]}
               filterOption={filterOption}
+              sortSelecting={-1}
               filterStateFunction={setFilterOption}
             />
             <div className="flex flex-col mt-12 gap-6">

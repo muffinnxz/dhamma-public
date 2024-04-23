@@ -5,7 +5,7 @@ import { getUser } from "@/services/user.service";
 const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const placeId = req.query.id;
   const place = await getUser(placeId as string);
-  if (!place?.exists) {
+  if (!place.exists) {
     res.status(404).json({ message: "Not found place" });
     return;
   }

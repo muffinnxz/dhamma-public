@@ -4,9 +4,7 @@ import { uploadBase64 } from "@/lib/firebase-storage";
 import { DocumentSnapshot, DocumentData } from "firebase-admin/lib/firestore";
 import * as crypto from "crypto";
 import { Place } from "@/interfaces/place";
-
-export const getUser = async (userId: string): Promise<DocumentSnapshot<DocumentData, DocumentData> | null> => {
-  if(userId === null) return null;
+export const getUser = async (userId: string): Promise<DocumentSnapshot<DocumentData, DocumentData>> => {
   const fs = admin.firestore();
   const userRef = fs.collection("users").doc(userId);
   const user = await userRef.get();

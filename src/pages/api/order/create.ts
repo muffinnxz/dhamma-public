@@ -17,7 +17,7 @@ const handler = async (req: ExtendedNextApiRequest, res: NextApiResponse) => {
   const userId = req.user;
   const user = await getUser(userId);
 
-  if (!user?.exists) {
+  if (!user.exists) {
     res.status(404).json({ message: "Not found user" });
     return;
   }
@@ -36,7 +36,7 @@ const handler = async (req: ExtendedNextApiRequest, res: NextApiResponse) => {
 
   const { placeId, items } = req.body;
   const place = await getUser(placeId);
-  if (!place?.exists) {
+  if (!place.exists) {
     res.status(404).json({ message: "Not found place" });
     return;
   }

@@ -10,7 +10,7 @@ const handler = async (req: NextApiRequestWithUser, res: NextApiResponse) => {
     return;
   }
   const user = await getUser(userId);
-  if (!user?.exists) {
+  if (!user.exists) {
     res.status(404).json({ message: "Not found user" });
     return;
   }

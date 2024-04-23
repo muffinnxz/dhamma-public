@@ -14,7 +14,6 @@ import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from ".
 import axios from "@/lib/axios";
 import { convertBase64 } from "@/lib/utils";
 import { useState } from "react";
-import { passwordSafety, validEmail } from "@/lib/validation";
 
 interface FormInterface {
   name: string;
@@ -42,25 +41,6 @@ export default function RegisterForm() {
   const router = useRouter();
 
   const onSubmit = handleSubmit((data) => {
-    const validEmailMessage = validEmail(data.email);
-    const passwordSafetyMessage = passwordSafety(data.password, data.confirmPassword);
-
-    if (validEmailMessage !== "Email is valid") {
-      toast({
-        title: "Invalid email format",
-        description: validEmailMessage
-      });
-      return;
-    }
-
-    if (passwordSafetyMessage !== "Password is safe") {
-      toast({
-        title: "Password is not safe",
-        description: passwordSafetyMessage
-      });
-      return;
-    }
-
     if (data.userType === UserType.donor) {
       delete data.placeType;
       delete data.province;

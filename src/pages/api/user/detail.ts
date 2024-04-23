@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   try {
     const userData = await getUser(userId.toString());
-    if (!userData?.exists) {
+    if (!userData.exists) {
       return res.status(404).json({ message: "User not found" });
     }
 
