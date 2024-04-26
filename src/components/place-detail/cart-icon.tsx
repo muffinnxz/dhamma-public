@@ -105,8 +105,8 @@ export default function CartIcon({ id, requestItems }: { id: string; requestItem
     axios
       .post(`/stripe`, {
         placeId: id,
-        items: carts?.find((cart) => cart.placeId === id)?.donateItems,
-        donationMoney : donationMoneys?.find((donation) => donation.placeId === id)?.amount
+        items: carts?.find((cart) => cart.placeId === id)?.donateItems || [],
+        donationMoney : donationMoneys?.find((donation) => donation.placeId === id)?.amount || 0
       })
       .then(({ data }) => {
         setIsLoading(false);

@@ -56,7 +56,7 @@ export default function DonationMoneySection({
       .post(`/stripe`, {
         placeId: id,
         items: [],
-        donationMoney: donationMoneys?.find((donation) => donation.placeId === id)?.amount
+        donationMoney: donationMoneys?.find((donation) => donation.placeId === id)?.amount || 0
       })
       .then(({ data }) => {
         setIsSending(false);
